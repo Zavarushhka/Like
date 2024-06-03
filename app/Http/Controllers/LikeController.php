@@ -44,4 +44,17 @@ class LikeController extends Controller
 
         return response()->json(['message' => 'Like not found'], 404);
     }
+
+    public function getUserLikes($id_user)
+    {
+        $likes = Like::where('id_user', $id_user)->get();
+        return response()->json($likes, 200);
+    }
+
+    public function getMusicLikes($id_music)
+    {
+        $likes = Like::where('id_music', $id_music)->get();
+        return response()->json($likes, 200);
+    }
+
 }

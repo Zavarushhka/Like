@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/like', [LikeController::class, 'like']);
-Route::post('/unlike', [LikeController::class, 'unlike']);
+Route::post('/like', [LikeController::class, 'store']); // Метод store сохраняет лайк
+Route::post('/unlike', [LikeController::class, 'destroy']); // Метод destroy удаляет лайк
 Route::get('/user/{id_user}/likes', [LikeController::class, 'getUserLikes']);
 Route::get('/music/{id_music}/likes', [LikeController::class, 'getMusicLikes']);
